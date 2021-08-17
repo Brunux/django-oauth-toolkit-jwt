@@ -32,10 +32,10 @@ In order to generate a RS[256, 384, 512] (RSA Signature with SHA-[256, 384, 512]
 keys, execute the following:
 
 ```shell script
-ssh-keygen -t rsa -b 4096 -f jwtRS256.key # don't add passphrase
-openssl rsa -in jwtRS256.key -pubout -outform PEM -out jwtRS256.key.pub
-cat jwtRS256.key
-cat jwtRS256.key.pub
+openssl genrsa -out jwtRS256.pem 4096
+openssl rsa -in jwtRS256.key -pubout -out jwtRS256.pem.pub
+cat jwtRS256.pem
+cat jwtRS256.pem.pub
 ```
 
 The bit-length in this JWT-algorithm setting specifies only the bit-length of the used hash-algorithm (SHA),
